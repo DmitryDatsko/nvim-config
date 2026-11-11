@@ -19,7 +19,6 @@ require("plugins.roslyn")
 require("plugins.which-key")
 require("plugins.blink")
 require("plugins.autopairs")
-require("plugins.namu")
 
 require("config.keymaps")
 require("config.autocmds")

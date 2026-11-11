@@ -1,14 +1,27 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.diagnostic.config({
-    signs = {
-        text = {
-            [vim.diagnostic.severity.WARN] = "󰊠 ",
-            [vim.diagnostic.severity.ERROR] = "󰊠 ",
-            [vim.diagnostic.severity.INFO] = "󰊠 ",
-            [vim.diagnostic.severity.HINT] = "󰊠 ",
-        },
-    },
+	severity_sort = true,
+	update_in_insert = true,
+	virtual_lines = { current_line = true },
+	virtual_text = {
+		current_line = false,
+		spacing = 2,
+		prefix = function(_, index, total)
+			return index == total and ("󰊠 " .. total) or ""
+		end,
+		format = function()
+			return ""
+		end,
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.WARN] = "󰊠 ",
+			[vim.diagnostic.severity.ERROR] = "󰊠 ",
+			[vim.diagnostic.severity.INFO] = "󰊠 ",
+			[vim.diagnostic.severity.HINT] = "󰊠 ",
+		},
+	},
 })
 vim.o.mouse = ""
 vim.o.clipboard = "unnamedplus"

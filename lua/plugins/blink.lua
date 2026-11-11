@@ -31,7 +31,13 @@ require("blink.cmp").setup({
 		},
 		menu = {
 			border = "single",
+			max_height = 15,
 			draw = {
+				columns = {
+					{ "label" },
+					{ "kind_icon", "kind", gap = 1 },
+					{ "label_description" },
+				},
 				components = {
 					kind_icon = {
 						ellipsis = false,
@@ -39,6 +45,12 @@ require("blink.cmp").setup({
 							local icon = require("mini.icons").get("lsp", ctx.kind)
 							return icon
 						end,
+						highlight = function(ctx)
+							local _, hl = require("mini.icons").get("lsp", ctx.kind)
+							return hl
+						end,
+					},
+					kind = {
 						highlight = function(ctx)
 							local _, hl = require("mini.icons").get("lsp", ctx.kind)
 							return hl
