@@ -1,6 +1,7 @@
 vim.loader.enable()
 
 require("config.options")
+require("config.pack_hooks")
 
 require("plugins.colorscheme")
 require("plugins.mini-icons")
@@ -9,6 +10,13 @@ require("plugins.barbar")
 require("plugins.mini-files")
 require("plugins.snacks")
 require("plugins.treesitter")
+require("plugins.mason")
+require("plugins.lualine")
+require("plugins.conform")
+require("plugins.filetypes")
+require("plugins.nvim-dap")
+require("plugins.roslyn")
+require("plugins.which-key")
 
 require("config.keymaps")
 require("config.autocmds")

@@ -7,6 +7,23 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("RoslynFeatures", { clear = true }),
+    desc = "Enable Roslyn inlay hints and code lenses",
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if not client or client.name ~= "roslyn" then
+            return
+        end
+        if client:supports_method("textDocument/inlayHint") then
+            vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+        end
+        if client:supports_method("textDocument/codeLens") then
+            vim.lsp.codelens.enable(true, { bufnr = ev.buf })
+        end
+    end,
+})
+
 local files = require("mini.files")
 local function synchronize_files()
 	local before = {}
