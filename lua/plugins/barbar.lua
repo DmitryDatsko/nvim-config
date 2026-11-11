@@ -1,7 +1,5 @@
 vim.pack.add { "https://github.com/romgrk/barbar.nvim" }
 
-local barbar_icons = require("barbar.icons")
-
 require("barbar").setup({
 	animation = true,
 	auto_hide = false,

@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
 
 map("n", "<ESC>", ":nohl<CR>", { desc = "clear search highlights", silent = true })
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })

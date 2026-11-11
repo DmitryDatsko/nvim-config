@@ -7,18 +7,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    group = vim.api.nvim_create_augroup("TreesitterFolds", { clear = true }),
-    callback = function(ev)
-        if not vim.treesitter.get_parser(ev.buf) then
-            return
-        end
-        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-        vim.wo[0][0].foldmethod = "expr"
-        vim.wo[0][0].foldlevel = 99
-    end,
-})
-
 local files = require("mini.files")
 local function synchronize_files()
 	local before = {}
@@ -52,7 +40,6 @@ local function synchronize_files()
 	end
 end
 
-local files = require("mini.files")
 vim.api.nvim_create_autocmd("User", {
 	group = vim.api.nvim_create_augroup("MiniFilesSync", { clear = true }),
 	pattern = "MiniFilesBufferCreate",
@@ -70,8 +57,8 @@ vim.api.nvim_create_autocmd("User", {
 			desc = "Open entry and close explorer on file",
 		})
 		vim.keymap.set("n", "<C-CR>", function()
-            files.go_in({ close_on_file = true })
-        end, {
+			files.go_in()
+		end, {
 			buffer = event.data.buf_id,
 			silent = true,
 			desc = "Open entry and keep explorer open",

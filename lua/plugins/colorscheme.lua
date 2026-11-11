@@ -9,4 +9,4 @@ require("everforest").setup({
         hl.DiagnosticHint = { fg = palette.none, bg = palette.none, sp = palette.green }
   end,
 })
-vim.cmd([[colorscheme everforest]])
+vim.cmd.colorscheme("everforest")

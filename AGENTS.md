@@ -8,7 +8,7 @@ I'll write all code. Your work here comprise:
     - New keymaps exist: `:verbose map <key>`
 - Review what I wrote against "Review focus" below: is it native/modern for Neovim 0.12+, is there any load-order conflict, can the Lua or the setup be simpler/more correct.
 - Don't build test projects or drive the UI. I check the behavior myself after the restart.
-- Report only. Don't edit my files, `nvim-pack-lock.json` or anything under `~/.local/share/nvim`, and don't install/update/delete plugins (a missing plugin makes `vim.pack.add()` open a confirmation prompt, which hangs headless runs). I apply the fixes.
+- Report only. When I explicitly ask you to implement a fix, edit the relevant source files. Never modify plugins or the lockfile.
 
 ### Quick checks (headless, read-only)
 

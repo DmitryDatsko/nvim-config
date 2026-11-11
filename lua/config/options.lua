@@ -10,50 +10,49 @@ vim.diagnostic.config({
         },
     },
 })
-vim.opt.mouse = ""
-vim.opt.clipboard = "unnamedplus"
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
+vim.o.mouse = ""
+vim.o.clipboard = "unnamedplus"
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.cursorline = true
 
-vim.opt.linebreak = true
-vim.opt.breakindent = true
-vim.opt.scrolloff = 10
+vim.o.linebreak = true
+vim.o.breakindent = true
+vim.o.scrolloff = 10
 
-vim.opt.signcolumn = "yes"
-vim.opt.cmdheight = 0
-vim.opt.laststatus = 3
-vim.opt.winborder = "rounded"
+vim.o.signcolumn = "yes"
+vim.o.cmdheight = 0
+vim.o.laststatus = 3
+vim.o.winborder = "rounded"
 
-vim.opt.pumheight = 10
-vim.opt.pumblend = 10
-vim.opt.showmatch = true
-vim.opt.matchtime = 2
-vim.opt.title = true
+vim.o.pumheight = 10
+vim.o.pumblend = 10
+vim.o.showmatch = true
+vim.o.matchtime = 2
+vim.o.title = true
 vim.opt.fillchars:append({ diff = "/" })
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.opt.path:append("**")
-vim.opt.wildmode = "longest:full,full"
-vim.opt.wildignore = { "*/node_modules/*", "*.o", "*.obj", "*.pyc", "*.class", "*.jar" }
+vim.o.wildmode = "longest:full,full"
+vim.o.wildignore = "*/node_modules/*,*.o,*.obj,*.pyc,*.class,*.jar"
 
-vim.opt.swapfile = false
-vim.opt.writebackup = false
-vim.opt.undofile = true
-vim.opt.undodir = vim.fn.expand("~/.cache/nvim/undodir")
+vim.o.swapfile = false
+vim.o.undofile = true
+vim.o.undodir = vim.fn.expand("~/.cache/nvim/undodir")
 
-vim.opt.updatetime = 300
-vim.opt.timeoutlen = 500
-vim.opt.ttimeoutlen = 0
+vim.o.updatetime = 300
+vim.o.timeoutlen = 500
+vim.o.ttimeoutlen = 0
 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 require("vim._core.ui2").enable({
 	msg = {
