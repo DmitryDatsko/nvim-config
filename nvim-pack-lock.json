@@ -38,11 +38,11 @@
       "src": "https://github.com/mason-org/mason.nvim.git"
     },
     "mini.files": {
-      "rev": "f031f95dcaa5efd30f12983d5e40020c4d75f694",
+      "rev": "52b6a0ff498edd0755c71c3476b30ba07798989a",
       "src": "https://github.com/nvim-mini/mini.files"
     },
     "mini.icons": {
-      "rev": "eab3e692d796d78ea6ffc978d8a380ff26fcf4e3",
+      "rev": "fc90b3925a2a68282be06e28cfe0cbb366c75dad",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "nvim-autopairs": {
@@ -70,7 +70,7 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "19bdfc04f40ed2ccb3340591d125f759b0406875",
+      "rev": "60c0f468de3e636fa660a419d537e8033aca4e39",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "roslyn.nvim": {
