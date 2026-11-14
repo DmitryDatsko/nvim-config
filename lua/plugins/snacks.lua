@@ -46,24 +46,24 @@ map({
 	{ "gr", picker.lsp_references, desc = "LSP Goto References" },
 	{ "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
 	{ "<C-k>", vim.lsp.buf.signature_help, desc = "Signature Help", mode = "i" },
-{
-       "<C-j>",
-       function()
-           vim.diagnostic.jump({
-               count = 1,
-               on_jump = function(diagnostic, bufnr)
-                   if diagnostic then
-                       vim.diagnostic.open_float({
-                           bufnr = bufnr,
-                           scope = "cursor",
-                           focus = false,
-                       })
-                   end
-               end,
-           })
-       end,
-       desc = "Jump to next diagnostic",
-   },
+	{
+		"<C-j>",
+		function()
+			vim.diagnostic.jump({
+				count = 1,
+				on_jump = function(diagnostic, bufnr)
+					if diagnostic then
+						vim.diagnostic.open_float({
+							bufnr = bufnr,
+							scope = "cursor",
+							focus = false,
+						})
+					end
+				end,
+			})
+		end,
+		desc = "Jump to next diagnostic",
+	},
 	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "x" } },
 	{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename" },
 })
@@ -71,17 +71,23 @@ map({
 -- Snacks
 map({
 	{ "<leader>cl", picker.lsp_config, desc = "Lsp Info" },
-	{ "<leader>cR", function() require("snacks").rename.rename_file() end, desc = "Rename File" },
-	{ ";f", picker.files, desc = "Find files"},
+	{
+		"<leader>cR",
+		function()
+			require("snacks").rename.rename_file()
+		end,
+		desc = "Rename File",
+	},
+	{ ";f", picker.files, desc = "Find files" },
 	{ ";r", picker.grep, desc = "Live grep" },
 	{ ";;", picker.resume, desc = "Resume picker" },
-{
-       "\\\\",
-       function()
-           picker.buffers({ confirm = "drop" })
-       end,
-       desc = "List buffers",
-   },
+	{
+		"\\\\",
+		function()
+			picker.buffers({ confirm = "drop" })
+		end,
+		desc = "List buffers",
+	},
 	{ ";e", picker.diagnostics, desc = "Diagnostics" },
 	{ ";c", picker.lsp_incoming_calls, desc = "LSP incoming calls" },
 	{ ";n", picker.notifications, desc = "Notifications" },
