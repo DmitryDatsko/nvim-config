@@ -1,4 +1,4 @@
-vim.pack.add({ 'https://github.com/nvim-mini/mini.files' })
+vim.pack.add({ "https://github.com/nvim-mini/mini.files" })
 
 local files = require("mini.files")
 files.setup({})

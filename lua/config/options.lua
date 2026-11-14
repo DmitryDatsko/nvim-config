@@ -69,8 +69,8 @@ vim.o.splitright = true
 
 require("vim._core.ui2").enable({
 	msg = {
-		target = "msg",
 		targets = {
+			default = "msg",
 			emsg = "pager",
 			echoerr = "pager",
 			lua_error = "pager",
@@ -81,7 +81,8 @@ require("vim._core.ui2").enable({
 			shell_err = "pager",
 			shell_out = "pager",
 			shell_ret = "pager",
-			progress = "pager",
+			progress = "msg",
+			bufwrite = "msg",
 			search_count = "cmd",
 			search_cmd = "cmd",
 			completion = "cmd",

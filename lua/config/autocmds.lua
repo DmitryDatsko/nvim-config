@@ -1,27 +1,27 @@
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yank', {}),
-  desc = 'Hightlight selection on yank',
-  pattern = '*',
-  callback = function()
-    vim.hl.on_yank { higroup = 'IncSearch', timeout = 200 }
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.hl.on_yank({ higroup = "IncSearch", timeout = 200 })
+	end,
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("RoslynFeatures", { clear = true }),
-    desc = "Enable Roslyn inlay hints and code lenses",
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if not client or client.name ~= "roslyn" then
-            return
-        end
-        if client:supports_method("textDocument/inlayHint") then
-            vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
-        end
-        if client:supports_method("textDocument/codeLens") then
-            vim.lsp.codelens.enable(true, { bufnr = ev.buf })
-        end
-    end,
+	group = vim.api.nvim_create_augroup("RoslynFeatures", { clear = true }),
+	desc = "Enable Roslyn inlay hints and code lenses",
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if not client or client.name ~= "roslyn" then
+			return
+		end
+		if client:supports_method("textDocument/inlayHint") then
+			vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+		end
+		if client:supports_method("textDocument/codeLens") then
+			vim.lsp.codelens.enable(true, { bufnr = ev.buf })
+		end
+	end,
 })
 
 local files = require("mini.files")
@@ -66,19 +66,11 @@ vim.api.nvim_create_autocmd("User", {
 			silent = true,
 			desc = "Synchronize files and save LSP edits",
 		})
-		vim.keymap.set("n", "<CR>", function()
-			files.go_in({ close_on_file = true })
-		end, {
-			buffer = event.data.buf_id,
-			silent = true,
-			desc = "Open entry and close explorer on file",
-		})
-		vim.keymap.set("n", "<C-CR>", function()
-			files.go_in()
-		end, {
-			buffer = event.data.buf_id,
-			silent = true,
-			desc = "Open entry and keep explorer open",
-		})
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "o", "r" })
 	end,
 })

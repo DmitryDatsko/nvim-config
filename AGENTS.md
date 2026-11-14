@@ -3,9 +3,10 @@
 ## Check by agent
 
 I'll write all code. Your work here comprise:
+
 - Check my work lightly:
-    - Neovim starts without errors: `nvim --headless +qa`
-    - New keymaps exist: `:verbose map <key>`
+  - Neovim starts without errors: `nvim --headless +qa`
+  - New keymaps exist: `:verbose map <key>`
 - Review what I wrote against "Review focus" below: is it native/modern for Neovim 0.12+, is there any load-order conflict, can the Lua or the setup be simpler/more correct.
 - Don't build test projects or drive the UI. I check the behavior myself after the restart.
 - Report only. When I explicitly ask you to implement a fix, edit the relevant source files. Never modify plugins or the lockfile.
@@ -124,23 +125,17 @@ Per finding: `file:line`, what is wrong, why (`:h` tag or README), and a minimal
    │   ├── lua_ls.lua
    │   ├── pyright.lua
    │   └── ...                     # One file per language server you configure
-   │
-   └── after/
-       └── ftplugin/
-           ├── lua.lua
-           ├── python.lua
-           └── ...                 # Only filetypes needing personal overrides
- ```
+```
 
 1. `init.lua` as a short entry point. This is just a list of enabled plugins, not their configuration. Adding a plugin means creating its file and
- adding a require() here.
+   adding a require() here.
 2. Tree-sitter configuration together.
 
 `lua/plugins/treesitter.lua` should own:
 
- - The plugin declaration, including the branch/version I choose.
- - Parser installation configuration.
- - Highlighting and indentation activation.
- - Tree-sitter-specific autocommands.
+- The plugin declaration, including the branch/version I choose.
+- Parser installation configuration.
+- Highlighting and indentation activation.
+- Tree-sitter-specific autocommands.
 
- Exception: the `PackChanged` hook for tree-sitter lives in `lua/config/pack_hooks.lua`, which is required before any `vim.pack.add()`.
+Exception: the `PackChanged` hook for tree-sitter lives in `lua/config/pack_hooks.lua`, which is required before any `vim.pack.add()`.
