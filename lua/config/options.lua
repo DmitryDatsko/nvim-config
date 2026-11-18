@@ -3,16 +3,10 @@ vim.g.maplocalleader = " "
 vim.diagnostic.config({
 	severity_sort = true,
 	update_in_insert = true,
-	virtual_lines = { current_line = true },
+	virtual_lines = false,
 	virtual_text = {
-		current_line = false,
 		spacing = 2,
-		prefix = function(_, index, total)
-			return index == total and ("󰊠 " .. total) or ""
-		end,
-		format = function()
-			return ""
-		end,
+		prefix = "󰊠  ",
 	},
 	signs = {
 		text = {
